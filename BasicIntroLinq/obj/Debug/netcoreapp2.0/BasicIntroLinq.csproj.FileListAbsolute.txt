@@ -1,0 +1,10 @@
+c:\Users\helt0\Documents\Visual Studio 2017\Projects\BasicIntroLinq\BasicIntroLinq\bin\Debug\netcoreapp2.0\BasicIntroLinq.deps.json
+c:\Users\helt0\Documents\Visual Studio 2017\Projects\BasicIntroLinq\BasicIntroLinq\bin\Debug\netcoreapp2.0\BasicIntroLinq.runtimeconfig.json
+c:\Users\helt0\Documents\Visual Studio 2017\Projects\BasicIntroLinq\BasicIntroLinq\bin\Debug\netcoreapp2.0\BasicIntroLinq.runtimeconfig.dev.json
+c:\Users\helt0\Documents\Visual Studio 2017\Projects\BasicIntroLinq\BasicIntroLinq\bin\Debug\netcoreapp2.0\BasicIntroLinq.dll
+c:\Users\helt0\Documents\Visual Studio 2017\Projects\BasicIntroLinq\BasicIntroLinq\bin\Debug\netcoreapp2.0\BasicIntroLinq.pdb
+c:\Users\helt0\Documents\Visual Studio 2017\Projects\BasicIntroLinq\BasicIntroLinq\obj\Debug\netcoreapp2.0\BasicIntroLinq.csproj.CoreCompileInputs.cache
+c:\Users\helt0\Documents\Visual Studio 2017\Projects\BasicIntroLinq\BasicIntroLinq\obj\Debug\netcoreapp2.0\BasicIntroLinq.AssemblyInfoInputs.cache
+c:\Users\helt0\Documents\Visual Studio 2017\Projects\BasicIntroLinq\BasicIntroLinq\obj\Debug\netcoreapp2.0\BasicIntroLinq.AssemblyInfo.cs
+c:\Users\helt0\Documents\Visual Studio 2017\Projects\BasicIntroLinq\BasicIntroLinq\obj\Debug\netcoreapp2.0\BasicIntroLinq.dll
+c:\Users\helt0\Documents\Visual Studio 2017\Projects\BasicIntroLinq\BasicIntroLinq\obj\Debug\netcoreapp2.0\BasicIntroLinq.pdb
