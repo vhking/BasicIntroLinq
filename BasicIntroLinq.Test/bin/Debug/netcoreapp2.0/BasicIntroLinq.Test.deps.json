@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v2.0": {
       "BasicIntroLinq.Test/1.0.0": {
         "dependencies": {
+          "BasicIntroLinq": "1.0.0",
           "Microsoft.NET.Test.Sdk": "15.5.0",
           "NUnit3TestAdapter": "3.9.0",
           "NUnit": "3.9.0"
@@ -1017,6 +1018,11 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "BasicIntroLinq/1.0.0": {
+        "runtime": {
+          "BasicIntroLinq.dll": {}
+        }
       }
     }
   },
@@ -1529,6 +1535,11 @@
       "sha512": "sha512-A/uxsWi/Ifzkmd4ArTLISMbfFs6XpRPsXZonrIqyTY70xi8t+mDtvSM5Os0RqyRDobjMBwIDHDL4NOIbkDwf7A==",
       "path": "system.xml.xpath.xmldocument/4.3.0",
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
+    },
+    "BasicIntroLinq/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
