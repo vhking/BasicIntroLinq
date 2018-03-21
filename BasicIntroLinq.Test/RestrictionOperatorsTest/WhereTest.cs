@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using BasicIntroLinq.RestrictionOperators;
 using BasicIntroLinq.RestrictionOperators.Data;
-using BasicIntroLinq.RestrictionOperators.Models;
 using NUnit.Framework;
 
 namespace BasicIntroLinq.Test.RestrictionOperators

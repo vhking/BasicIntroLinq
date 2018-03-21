@@ -1,4 +1,4 @@
-namespace BasicIntroLinq.RestrictionOperators.Models
+namespace BasicIntroLinq.Models
 {
     public class Customer
     {

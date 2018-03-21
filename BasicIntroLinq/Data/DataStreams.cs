@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using BasicIntroLinq.RestrictionOperators.Models;
+using BasicIntroLinq.Models;
 
-namespace BasicIntroLinq.RestrictionOperators.Data
+namespace BasicIntroLinq.Data
 {
     public class DataStreams
     {

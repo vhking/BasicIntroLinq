@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using BasicIntroLinq.RestrictionOperators.Models;
+using BasicIntroLinq.Models;
 
-namespace BasicIntroLinq.RestrictionOperators.Data
+namespace BasicIntroLinq.Data
 {
     public interface IGeneric<T> where T : class
     {

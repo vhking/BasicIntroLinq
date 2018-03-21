@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using BasicIntroLinq.RestrictionOperators.Models;
-using BasicIntroLinq.RestrictionOperators.Data;
+using BasicIntroLinq.Data;
+using BasicIntroLinq.Models;
 
 namespace BasicIntroLinq.RestrictionOperators.Data
 {

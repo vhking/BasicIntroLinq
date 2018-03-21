@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using BasicIntroLinq.RestrictionOperators;
 using BasicIntroLinq.RestrictionOperators.Data;
-using BasicIntroLinq.RestrictionOperators.Models;
 
 namespace BasicIntroLinq
 {

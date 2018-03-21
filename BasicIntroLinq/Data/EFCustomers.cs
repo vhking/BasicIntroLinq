@@ -1,7 +1,8 @@
 using System.Collections.Generic;
-using BasicIntroLinq.RestrictionOperators.Models;
+using BasicIntroLinq.Data;
+using BasicIntroLinq.Models;
 
-namespace BasicIntroLinq.RestrictionOperators.Data
+namespace BasicIntroLinq.Data
 {
     public class EFCustomers : IGeneric<Customer>
     {
