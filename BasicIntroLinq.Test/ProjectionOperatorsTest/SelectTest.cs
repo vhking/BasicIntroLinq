@@ -15,5 +15,11 @@ namespace BasicIntroLinq.Test.ProjectionOperatorsTest
 
             Assert.AreEqual(result,_select.SelectSimple1(numbers));
         }
+
+        [Test]
+        public void SelectSimple2_JustNames_ReturnProductNames()
+        {
+            //TODO: implement moq
+        }
     }
 }

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Linq;
+using BasicIntroLinq.Models;
 
 namespace BasicIntroLinq.ProjectionOperators
 {
@@ -20,7 +22,18 @@ namespace BasicIntroLinq.ProjectionOperators
         }
 
         // this sample uses select to return a
-        //sequence of just the names of a list of products
-        
+        // sequence of just the names of a list of products
+        public List<Product> SelectSimple2(List<Product> products)
+        {
+            //-- Linq Query operators -- 
+            var productNames =
+                (from product in products
+                 select product.ProductName).ToList();
+
+            //-- Linq Extension methods
+            var productNames2 = products.Select(product => product.ProductName);
+
+            return products;
+        }
     }
 }
