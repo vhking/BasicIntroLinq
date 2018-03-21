@@ -35,5 +35,21 @@ namespace BasicIntroLinq.ProjectionOperators
 
             return products;
         }
+
+        // This sample uses select to produce a seqiemce of 
+        // string representing the text version of a sequence of ints
+        public string[] SelectTransformation(int[] numbers, string[] strings)
+        {
+            // -- Linq Query operators -- 
+            var textNums =
+            (from number in numbers
+             select strings[number]).ToArray();
+
+            // -- Linq Extension methods --
+            var textNumbs2 = numbers.Select(number => strings[number])
+                                    .ToArray();
+
+            return textNums;
+        }
     }
 }
