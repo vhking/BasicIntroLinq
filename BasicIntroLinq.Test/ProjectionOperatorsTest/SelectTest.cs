@@ -69,16 +69,27 @@ namespace BasicIntroLinq.Test.ProjectionOperatorsTest
         public void SelectAnonymousType3_Rename_ReturnProducts()
         {
             //TODO: moq?
-            // string[] strings = { "aPPLE", "BlUeBeRrY", "cHeRry"};
-            // List<LowerAndUpperViewModel> result = new List<LowerAndUpperViewModel>
-            // { 
-            //     new LowerAndUpperViewModel {Upper = "APPLE", Lower = "apple"},
-            //     new LowerAndUpperViewModel {Upper = "BLUEBERRY", Lower = "blueberry"},
-            //     new LowerAndUpperViewModel {Upper = "CHERRY", Lower = "cherry"}
-
-            // };
-
-            // Assert.AreEqual(result , _select.SelectAnonymousType1(strings));
+           
         }
+
+        [Test]
+        public void SelectIndexed_NumInPosition_ReturnList()
+        {            
+            //TODO: moq?
+           
+        }
+
+        [Test]
+        public void SelectFiltered_LessThen5_ReturnArrey()
+        {
+            
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            string[] result = {"four","one","three","two","zero"};
+
+            Assert.AreEqual(result, _select.SelectFiltered(numbers, strings));
+            
+        }
+
     }
 }

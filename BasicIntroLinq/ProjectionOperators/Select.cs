@@ -100,5 +100,40 @@ namespace BasicIntroLinq.ProjectionOperators
             return productInto.ToList();
 
         }
+
+        // This sample uses an indexed Select clause to determine if the value
+        // of the ints in an array match  their position in the array.
+        public List<SelectIndexViewModel> SelectIndexed(int[] numbers)
+        {
+            // -- Linq Query operators -- 
+            var numsInPlace =
+                from number in numbers.Select((number, index) => new { Number = number, InPlace = (number == index) })
+                group number by new SelectIndexViewModel { Number = number.Number, InPlace = number.InPlace };
+
+            // -- Linq Extension method --
+            var numsInPlace2 =
+            numbers.Select((number, index) => new SelectIndexViewModel { Number = number, InPlace = (number == index) });
+
+            return numsInPlace2.ToList();
+        }
+
+        // This sample combines select and where to make simple
+        // query that retursn the text from each digit less than 5
+        public string[] SelectFiltered(int[] numbers, string[] words)
+        {
+            // -- Linq Query operations --
+            var lowNum =
+            (from number in numbers
+             where number < 5
+             select words[number]).ToArray();
+
+            // -- Linq Extention method --
+            var lowNum2 =
+                numbers.Where(number => number < 5)
+                       .Select(number => words[number]).ToArray();
+
+            return lowNum;
+        }
+
     }
 }
