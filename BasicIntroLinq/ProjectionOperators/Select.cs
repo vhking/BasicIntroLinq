@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BasicIntroLinq.Models;
+using BasicIntroLinq.Models.ViewModels;
 
 namespace BasicIntroLinq.ProjectionOperators
 {
@@ -50,6 +51,54 @@ namespace BasicIntroLinq.ProjectionOperators
                                     .ToArray();
 
             return textNums;
+        }
+
+        // This sample uses select to produce a sequence of the uppercase and 
+        // lowercase version of each word in the original array
+        public List<LowerAndUpperViewModel> SelectAnonymousType1(string[] words)
+        {
+            // -- Linq Query operators --
+            var upperLowerWords =
+                from word in words
+                select new LowerAndUpperViewModel { Upper = word.ToUpper(), Lower = word.ToLower() };
+
+            // -- Linq Extension methods -- 
+            var upperLowerWords2 =
+            words.Select(word => new LowerAndUpperViewModel { Upper = word.ToUpper(), Lower = word.ToLower() });
+            return upperLowerWords.ToList();
+        }
+        // This sample uses select to produce a sequence containing text representation¨
+        // of digits and whether their length is even or odd.
+        public List<OddEvenViewModel> SelectAnonymousType2(int[] numbers, string[] words)
+        {
+            // -- Linq Query operators --
+            var digitOddEvens =
+                from number in numbers
+                select new OddEvenViewModel { Digit = words[number], Even = (number % 2 == 0) };
+
+            // -- Linq Extension methods -- 
+            var digitOddEvens2 =
+            numbers.Select(number => new OddEvenViewModel { Digit = words[number], Even = (number % 2 == 0) });
+            return digitOddEvens.ToList();
+        }
+
+        // This sample uses select to produce a sequence containing some properties of Products, 
+        // including UnitPrice which is renamed to Price in the resulting type
+        public List<ProductViewModel> SelectAnonymousType3(List<Product> products)
+        {
+
+            // -- Linq Query operators --
+            var productInto =
+                from product in products
+                select new ProductViewModel { ProductName = product.ProductName, Category = product.Category, Price = product.UnitPrice };
+
+            // -- Linq Extension methods --
+            var productInto2 =
+                products.Select(product =>
+                new ProductViewModel { ProductName = product.ProductName, Category = product.Category, Price = product.UnitPrice });
+
+            return productInto.ToList();
+
         }
     }
 }

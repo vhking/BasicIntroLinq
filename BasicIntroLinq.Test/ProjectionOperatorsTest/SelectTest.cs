@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using BasicIntroLinq.Models.ViewModels;
 using BasicIntroLinq.ProjectionOperators;
 using NUnit.Framework;
 
@@ -28,7 +30,55 @@ namespace BasicIntroLinq.Test.ProjectionOperatorsTest
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
             string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
             string[] result = { "five", "four", "one", "three", "nine", "eight", "six", "seven", "two", "zero" };
-            Assert.AreEqual(result , _select.SelectTransformation(numbers, strings));
+            Assert.AreEqual(result, _select.SelectTransformation(numbers, strings));
+        }
+
+        [Test]
+        public void SelectAnonymousType1_ToLowerAndUpper_ReturnList()
+        {
+            //TODO: moq?
+            // string[] strings = { "aPPLE", "BlUeBeRrY", "cHeRry"};
+            // List<LowerAndUpperViewModel> result = new List<LowerAndUpperViewModel>
+            // { 
+            //     new LowerAndUpperViewModel {Upper = "APPLE", Lower = "apple"},
+            //     new LowerAndUpperViewModel {Upper = "BLUEBERRY", Lower = "blueberry"},
+            //     new LowerAndUpperViewModel {Upper = "CHERRY", Lower = "cherry"}
+
+            // };
+
+            // Assert.AreEqual(result , _select.SelectAnonymousType1(strings));
+        }
+
+        [Test]
+        public void SelectAnonymousType2_FindEvenAndOdd_ReturnList()
+        {
+            //TODO: moq?
+            // string[] strings = { "aPPLE", "BlUeBeRrY", "cHeRry"};
+            // List<LowerAndUpperViewModel> result = new List<LowerAndUpperViewModel>
+            // { 
+            //     new LowerAndUpperViewModel {Upper = "APPLE", Lower = "apple"},
+            //     new LowerAndUpperViewModel {Upper = "BLUEBERRY", Lower = "blueberry"},
+            //     new LowerAndUpperViewModel {Upper = "CHERRY", Lower = "cherry"}
+
+            // };
+
+            // Assert.AreEqual(result , _select.SelectAnonymousType1(strings));
+        }
+
+        [Test]
+        public void SelectAnonymousType3_Rename_ReturnProducts()
+        {
+            //TODO: moq?
+            // string[] strings = { "aPPLE", "BlUeBeRrY", "cHeRry"};
+            // List<LowerAndUpperViewModel> result = new List<LowerAndUpperViewModel>
+            // { 
+            //     new LowerAndUpperViewModel {Upper = "APPLE", Lower = "apple"},
+            //     new LowerAndUpperViewModel {Upper = "BLUEBERRY", Lower = "blueberry"},
+            //     new LowerAndUpperViewModel {Upper = "CHERRY", Lower = "cherry"}
+
+            // };
+
+            // Assert.AreEqual(result , _select.SelectAnonymousType1(strings));
         }
     }
 }
