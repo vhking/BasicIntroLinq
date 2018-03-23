@@ -69,26 +69,38 @@ namespace BasicIntroLinq.Test.ProjectionOperatorsTest
         public void SelectAnonymousType3_Rename_ReturnProducts()
         {
             //TODO: moq?
-           
+
         }
 
         [Test]
         public void SelectIndexed_NumInPosition_ReturnList()
-        {            
+        {
             //TODO: moq?
-           
+
         }
 
         [Test]
         public void SelectFiltered_LessThen5_ReturnArrey()
         {
-            
+
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
             string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-            string[] result = {"four","one","three","two","zero"};
+            string[] result = { "four", "one", "three", "two", "zero" };
 
             Assert.AreEqual(result, _select.SelectFiltered(numbers, strings));
-            
+
+        }
+
+        [Test]
+        public void SelectManyCompoundFrom1_ALessThenB_ReturnList()
+        {
+
+        }
+
+        [Test]
+        public void SelectManyCompoundFrom2_OrdersLessThen500_ReturnList()
+        {
+
         }
 
     }

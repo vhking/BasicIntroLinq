@@ -135,5 +135,56 @@ namespace BasicIntroLinq.ProjectionOperators
             return lowNum;
         }
 
+        // This sample uses a compund from clause to make a query that returns
+        // all pairs of numbers from both arrays such that the numbers
+        // from numbersA is less then the numbers from numbersB
+        public IEnumerable<NumberAAndBViewModel> SelectManyCompoundFrom1(int[] numbersA, int[] numbersB)
+        {
+            // -- Linq Query operations --
+            var pairs =
+                from numberA in numbersA
+                from numberB in numbersB
+                where numberA < numberB
+                select new NumberAAndBViewModel {NumberA = numberA, NumberB = numberB};
+
+            // -- Linq Extension methods
+            var pairs2 =
+            numbersA.Where((numberA, index) => numberA < numbersB[index])
+                    .Select((numberA, index) => new NumberAAndBViewModel {NumberA = numberA , NumberB = numbersB[index]});
+            // SelectMany
+            var pairs3 =
+            numbersA.Where((numberA, index) => numberA < numbersB[index])
+                    .SelectMany(numA=> numbersB, (a,b) => new NumberAAndBViewModel {NumberA = a, NumberB = b} );       
+        
+            return pairs;
+        }
+
+        // This sample uses a compound from clause to select all orders
+        // where the order total is less than 500.00
+        public IEnumerable<CustomerAndOrderViewModel> SelectManyCompoundFrom2(List<Customer> customers)
+        {
+            // -- Linq Query operation
+            var orders =
+            from customer in customers
+            from order in customer.Orders
+            where order.Total < 5000.00M
+            select new CustomerAndOrderViewModel 
+            {CustomerID = customer.CustomerID, 
+             OrderID = order.OrderID, 
+             Total = order.Total};
+
+            // -- Linq Extension method
+            // var orders2 =
+            // customers
+            //     .Where(customer => customer.Orders.Where(o=>o.Total>500))            
+            //     .SelectMany(customer => customer.Orders, (c,o) => 
+            //         new CustomerAndOrderViewModel
+            //         {CustomerID = c.CustomerID, 
+            //          OrderID = o.OrderID, 
+            //          Total = o.Total});
+
+            return orders;
+        }
+
     }
 }
