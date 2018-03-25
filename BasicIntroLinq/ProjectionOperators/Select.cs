@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using BasicIntroLinq.Models;
@@ -145,17 +146,17 @@ namespace BasicIntroLinq.ProjectionOperators
                 from numberA in numbersA
                 from numberB in numbersB
                 where numberA < numberB
-                select new NumberAAndBViewModel {NumberA = numberA, NumberB = numberB};
+                select new NumberAAndBViewModel { NumberA = numberA, NumberB = numberB };
 
-            // -- Linq Extension methods
+            // -- Linq Extension methods --
             var pairs2 =
             numbersA.Where((numberA, index) => numberA < numbersB[index])
-                    .Select((numberA, index) => new NumberAAndBViewModel {NumberA = numberA , NumberB = numbersB[index]});
+                    .Select((numberA, index) => new NumberAAndBViewModel { NumberA = numberA, NumberB = numbersB[index] });
             // SelectMany
             var pairs3 =
             numbersA.Where((numberA, index) => numberA < numbersB[index])
-                    .SelectMany(numA=> numbersB, (a,b) => new NumberAAndBViewModel {NumberA = a, NumberB = b} );       
-        
+                    .SelectMany(numA => numbersB, (a, b) => new NumberAAndBViewModel { NumberA = a, NumberB = b });
+
             return pairs;
         }
 
@@ -163,15 +164,17 @@ namespace BasicIntroLinq.ProjectionOperators
         // where the order total is less than 500.00
         public IEnumerable<CustomerAndOrderViewModel> SelectManyCompoundFrom2(List<Customer> customers)
         {
-            // -- Linq Query operation
+            // -- Linq Query operation --
             var orders =
             from customer in customers
             from order in customer.Orders
             where order.Total < 5000.00M
-            select new CustomerAndOrderViewModel 
-            {CustomerID = customer.CustomerID, 
-             OrderID = order.OrderID, 
-             Total = order.Total};
+            select new CustomerAndOrderViewModel
+            {
+                CustomerID = customer.CustomerID,
+                OrderID = order.OrderID,
+                Total = order.Total
+            };
 
             // -- Linq Extension method
             // var orders2 =
@@ -184,6 +187,83 @@ namespace BasicIntroLinq.ProjectionOperators
             //          Total = o.Total});
 
             return orders;
+        }
+
+        // This sample uses a compund from clause to select all 
+        // orders where the order was made int 1998 or later
+        public IEnumerable<CustomerAndOrderViewModel> SelectManyCompoundFrom3(List<Customer> custoemrs)
+        {
+            // -- Linq Query operations
+            var orders =
+                from customer in custoemrs
+                from order in customer.Orders
+                where order.OrderDate >= new DateTime(1998, 1, 1)
+                select new CustomerAndOrderViewModel 
+                { 
+                    CustomerID = customer.CustomerID, 
+                    OrderID = order.OrderID, 
+                    OrderDate = order.OrderDate 
+                };
+
+            return orders;
+        }
+
+        // This sample uses a compund from clause to select all orders where
+        // The order total is greater then 2000.00 and uses from assignment 
+        // to avoid requesting the total twice
+        public IEnumerable<CustomerAndOrderViewModel> SelectManyFromAssignment(List<Customer> customers)
+        {
+            // -- Linq QUery operators -- 
+            var orders =
+                from customer in customers
+                from order in customer.Orders
+                where order.Total >= 2000.0M
+                select new CustomerAndOrderViewModel 
+                {
+                    CustomerID = customer.CustomerID,
+                    OrderID = order.OrderID, 
+                    Total = order.Total
+                };
+
+            return orders;
+        }
+
+        // This sample uses multiple from clauses so that flitering on 
+        // customers can be done before selecting their orders. This makes
+        // the query more efficient by not selecting and then discarding orders
+        // for customers outside of Washington
+        public IEnumerable<CustomerAndOrderViewModel> SelectManyMultipleFrom(List<Customer> customers)
+        {        
+            DateTime cutOffDate = new DateTime(1997,1,1);
+            // --Linq Query operations
+            var orders =
+                from customer in customers
+                where customer.Region == "WA"
+                from order in customer.Orders
+                where order.OrderDate >= cutOffDate
+                select new CustomerAndOrderViewModel 
+                {
+                    CustomerID = customer.CustomerID,
+                    OrderID = order.OrderID
+                };
+
+            return orders;
+        }
+
+        // This simple uses an indexed SelectMany clause to select all orders, 
+        // while referring to customers by the order in which they are returned 
+        // from the query
+        public IEnumerable<string> SelectManyIndexted(List<Customer> custoemrs)
+        {
+            // -- Linq Extension methods
+            var customerOrders =
+                custoemrs.SelectMany(
+                    (customer, customerIndex) =>
+                    customer.Orders.Select(order => "Customer #" + (customerIndex + 1) +
+                                                    " has an order with OrderID " + order.OrderID));
+
+            return customerOrders;                                        
+                
         }
 
     }

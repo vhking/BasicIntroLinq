@@ -103,5 +103,26 @@ namespace BasicIntroLinq.Test.ProjectionOperatorsTest
 
         }
 
+        [Test]
+        public void SelectManyCompoundFrom3_Orders1998OrLater_ReturnList()
+        {
+
+        }
+        [Test]
+        public void SelectManyFromAssignment_OrdersGreaterThen2000_ReturnList()
+        {
+
+        }
+        [Test]
+        public void SelectManyMultipleFrom_Orders1997OrLaterWA_ReturnList()
+        {
+
+        }
+        [Test]
+        public void SelectManyIndexted_ByOrder_ReturnArray()
+        {
+
+        }
+
     }
 }
